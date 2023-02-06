@@ -8,6 +8,7 @@ const plumber = require("gulp-plumber");
 const cache = require("gulp-cache");
 const imagemin = require("gulp-imagemin");
 const webp = require("gulp-webp");
+const avif = require("gulp-avif");
 
 function css(cb) {
   src("src/scss/**/*.scss") //** */ es para q escuche por todos los archivos
@@ -40,6 +41,17 @@ function versionWebp(cb) {
   cb();
 }
 
+function versionAvif(cb) {
+  const opciones = {
+    quality: 50,
+  };
+
+  src("src/img/**/*.{png,jpg}") //{} para varios formatos
+    .pipe(avif(opciones))
+    .pipe(dest("build/img"));
+  cb();
+}
+
 function dev(cb) {
   watch("src/scss/**/*.scss", css);
 
@@ -49,4 +61,5 @@ function dev(cb) {
 exports.css = css;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
-exports.dev = parallel(imagenes, versionWebp, dev);
+exports.versionAvif = versionAvif;
+exports.dev = parallel(imagenes, versionWebp, versionAvif, dev);
