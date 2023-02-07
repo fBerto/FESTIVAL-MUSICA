@@ -19,13 +19,19 @@
 }
 
 @mixin desktopXL {
-    @media (min-width: v.$desktopXL) {
-      @content;
-    }
+  @media (min-width: v.$desktopXL) {
+    @content;
   }
+}
 
-  @mixin grid($columnas, $gap){
-    display: grid;
-    grid-template-columns: repeat($columnas,1fr);
-    gap: $gap;   
-  }
+@mixin grid($columnas, $gap) {
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $gap;
+}
+
+@mixin reset-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
