@@ -12,6 +12,9 @@ html{
 body{
     font-family: v.$fuente_principal;
     font-size: 1.6rem;
+    &.fijar-body{
+        overflow: hidden;
+    }
 }
 p{
     font-size: 2rem;
@@ -36,7 +39,7 @@ h2{
     font-synthesis: 3.6rem;
 }
 h3{
-    font-style: 3rem;
+    font-size: 3rem;
 }
 img{
     max-width: 100%;

@@ -52,14 +52,21 @@ function versionAvif(cb) {
   cb();
 }
 
-function dev(cb) {
-  watch("src/scss/**/*.scss", css);
+function javascript(cb){
+  src("src/js/**/*.js") //identificar el archivo
+  .pipe(dest("build/js")); //llevamos otra capreta para vea en navegador
+  cb();
+}
 
+function dev(cb) {
+  watch("src/js/**/*.js", javascript);
+  watch("src/scss/**/*.scss", css);
   cb();
 }
 
 exports.css = css;
+exports.js = javascript;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.dev = parallel(imagenes, versionWebp, versionAvif, dev);
+exports.dev = parallel(imagenes, versionWebp, versionAvif, javascript, dev);
