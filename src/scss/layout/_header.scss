@@ -4,6 +4,15 @@
 .header{
     background-color: v.$verde;
     padding: 2rem;
+    
+    @include m.tablet {
+        &.fijo{
+            position: fixed;
+            width: 100%;
+            box-shadow: .1rem .2rem .3rem #333;
+        }
+    }
+
     h1{
         color: v.$blanco;
         text-align: center;
