@@ -29,7 +29,15 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-webp": "^4.0.1",
     "sass": "^1.58.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "gulp-postcss": "^9.0.1",
+    "gulp-terser-js": "^5.2.2",
+    "postcss": "^8.4.21"
   }
 }
